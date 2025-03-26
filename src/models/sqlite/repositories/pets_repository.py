@@ -1,5 +1,5 @@
 from typing import List
-# from sqlalchemy.orm.exc import NoResultFound
+from sqlalchemy.orm.exc import NoResultFound
 from src.models.sqlite.entities.pets import PetsTable
 
 class PetsRepository:
@@ -8,7 +8,11 @@ class PetsRepository:
 
     def list_pets(self) -> List[PetsTable]:
         with self.__db_connection as database:
-            return database.session.query(PetsTable).all()
+            try:
+                pets = database.session.query(PetsTable).all()
+                return pets
+            except NoResultFound:
+                return []
 
     def delete_pets(self, name:str) -> None:
         with self.__db_connection as database:
