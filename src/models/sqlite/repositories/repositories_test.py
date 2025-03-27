@@ -1,3 +1,4 @@
+# This file is for educational purposes only
 import pytest
 from src.models.sqlite.settings.connection import db_connection_handler
 from .pets_repository import PetsRepository
