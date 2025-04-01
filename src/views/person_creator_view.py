@@ -1,8 +1,7 @@
-from src.views.http_types.http_request import HttpRequest
-from src.views.http_types.http_response import HttpResponse
-from ..http_types.http_request import HttpRequest
-from ...controllers.interfaces.person_creator_controller import PersonCreatorControllerInterface
-from .view_interface import ViewInterface
+from .http_types.http_request import HttpRequest
+from .http_types.http_response import HttpResponse
+from ..controllers.interfaces.person_creator_controller import PersonCreatorControllerInterface
+from .interfaces.view_interface import ViewInterface
 
 class PersonCreatorView(ViewInterface):
     def __init__(self, controller: PersonCreatorControllerInterface) -> None:
